@@ -109,7 +109,9 @@ nan_comp_df.columns = ['Not POI %','POI %']
 #display(nan_comp_df)
 
 
-# It might be the case that if we continue with the above data then the classifier might simply classify the POI as 1 or 0 simply on the basis of NaN . So for now , I am removing those columns which contain more 70% NaN values .
+# It might be the case that if we continue with the above data then the classifier might simply
+# classify the POI as 1 or 0 simply on the basis of NaN . So for now , I am removing those columns 
+#which contain more 70% NaN values .
 
 # In[12]:
 
@@ -163,7 +165,8 @@ data_df=data_df.drop(data_df.index[drop_rows.nonzero()])
 # display(data_df)
 
 
-# After remove the rows and columns we can se below that the overnall count of NaN's has decreased conisdderably for each column . The percentage of NaN values reduced for each columns are as follows : 
+# After remove the rows and columns we can se below that the overnall count of NaN's has decreased conisdderably 
+#for each column . The percentage of NaN values reduced for each columns are as follows : 
 
 # In[20]:
 
@@ -172,7 +175,9 @@ print "Reduction in percentage of NaNs in each column after cleaning "
 
 
 # Outlier Dectection  
-# I tried various combinations of columns to identify the outliers, but I found the outlier when I plotted a scatter plot between 'bonus' and 'salary' . The outlier had the name as 'Total' suggesting that it might be a record containing the sum of all other values . I deleted that row to further imporve the quality the dataset .
+# I tried various combinations of columns to identify the outliers, but I found the outlier when I plotted a scatter
+# plot between 'bonus' and 'salary' . The outlier had the name as 'Total' suggesting that it might be a record containing
+# the sum of all other values . I deleted that row to further imporve the quality the dataset .
 
 # In[21]:
 
@@ -254,8 +259,22 @@ enron_data_df = pd.concat([financial_df,email_df],axis=1, join_axes=[email_df.in
 
 enron_data_df
 
+#  Feature Engineering
+# The following features were created from the existing dataset :
 
-# ###Feature Engineering
+# 1. Fraction_from_poi : fraction of from_messages received that were from POI
+# It is calculated as : (from_poi_to_this_person/from messages)
+
+# 2. Fraction_to_poi : fraction of to_messages sent to  POI
+# It is calculated as : (from_poi_to_this_person/from messages)
+
+# 3. Related to poi : fraction of all messages (sent+received) that were related to POI
+# ( (from_poi_to_this_person+from_this person to POI)/(to msgs+from messages))
+
+# 4. Effective salary  : This is basically calculated as salary+bonus+long term incentive - expenses .
+
+
+
 # 1. Email Features
 
 # In[31]:
@@ -274,7 +293,7 @@ enron_data_df
 
 # In[33]:
 
-enron_data_df['Effective Salary']= enron_data_df['bonus'] +                                 enron_data_df['salary'] +                                 enron_data_df['long_term_incentive'] -                                 enron_data_df['expenses']
+enron_data_df['Effective Salary']= enron_data_df['bonus'] + enron_data_df['salary'] +  enron_data_df['long_term_incentive']- enron_data_df['expenses']
 
 
 # In[34]:
@@ -406,7 +425,8 @@ print features_10
 
 
 # It can be seen clearly that Top 10 features set is giving the worst performance among all 3, so we will discard it .  
-# Now we are left with the Top 5 and Top 7 features set respectively . Now after examining the above three tables , I observed the following facts :
+# Now we are left with the Top 5 and Top 7 features set respectively . Now after examining the above three tables , 
+#I observed the following facts :
 # 1. KNN classifier is performing the most poorly among all classifier for all sets .
 # 2. Decision Tree's performance remained more or less stable.
 # 3. SVM with rbf reported the best results with Top 5 features.
