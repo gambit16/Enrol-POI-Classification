@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Enron Email POI classification</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Enron+Email+POI+classification</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -18244,6 +18244,29 @@ AAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>We will save the this data before feature engineering to compare the results later</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">old_data</span> <span class="o">=</span> <span class="n">enron_data_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Feature-Engineering">Feature Engineering<a class="anchor-link" href="#Feature-Engineering">&#182;</a></h3><ol>
 <li>Email Features</li>
 </ol>
@@ -18253,7 +18276,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">enron_data_df</span><span class="p">[</span><span class="s1">&#39;fraction_from_poi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">enron_data_df</span><span class="o">.</span><span class="n">from_poi_to_this_person</span> <span class="o">/</span> <span class="n">enron_data_df</span><span class="o">.</span><span class="n">from_messages</span>
@@ -18268,7 +18291,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">enron_data_df</span>
@@ -18283,7 +18306,7 @@ AAAASUVORK5CYII=
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[32]:</div>
+<div class="prompt output_prompt">Out[33]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -19558,7 +19581,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">enron_data_df</span><span class="p">[</span><span class="s1">&#39;Effective Salary&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">enron_data_df</span><span class="p">[</span><span class="s1">&#39;bonus&#39;</span><span class="p">]</span> <span class="o">+</span> \
@@ -19574,7 +19597,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">del</span> <span class="n">enron_data_df</span><span class="p">[</span><span class="s1">&#39;bonus&#39;</span><span class="p">]</span>
@@ -19598,7 +19621,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">skb</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">f_classif</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">enron_data_df</span><span class="p">,</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;poi&#39;</span><span class="p">])</span>
@@ -19669,7 +19692,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">features_5</span> <span class="o">=</span> <span class="n">ranked_features</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
@@ -19707,7 +19730,7 @@ Features in third set are  [&#39;exercised_stock_options&#39;, &#39;total_stock_
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#Ref : http://stackoverflow.com/questions/30523735/python-dictionary-as-html-table-in-ipython-notebook</span>
@@ -19741,7 +19764,7 @@ Features in third set are  [&#39;exercised_stock_options&#39;, &#39;total_stock_
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;poi&#39;</span><span class="p">]</span>
@@ -19764,11 +19787,11 @@ Features in third set are  [&#39;exercised_stock_options&#39;, &#39;total_stock_
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_score_table</span><span class="p">(</span><span class="n">features_set</span><span class="p">):</span>
-    <span class="n">features</span> <span class="o">=</span> <span class="n">enron_data_df</span><span class="p">[</span><span class="n">features_set</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_score_table</span><span class="p">(</span><span class="n">features_set</span><span class="p">,</span><span class="n">dataset</span><span class="o">=</span><span class="n">enron_data_df</span><span class="p">):</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">features_set</span><span class="p">]</span>
     <span class="n">classifier_comp</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">classifier_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">pipeline</span> <span class="o">=</span>  <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
@@ -19801,7 +19824,7 @@ Features in third set are  [&#39;exercised_stock_options&#39;, &#39;total_stock_
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#Using top 5 features :d</span>
@@ -19837,11 +19860,11 @@ Features in third set are  [&#39;exercised_stock_options&#39;, &#39;total_stock_
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[40]:</div>
+<div class="prompt output_prompt">Out[41]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table width=100%><tr><th>Classifier</th><th>Accuracy</th><th>Precision</th><th>Recall</th></tr><tr><td>KNN</td><td>0.222222222222</td><td>0.133333333333</td><td>0.861111111111</td></tr><tr><td>Decision Tree</td><td>0.376082251082</td><td>0.6</td><td>0.787037037037</td></tr><tr><td>SVM_rbf</td><td>0.256613756614</td><td>0.666666666667</td><td>0.666666666667</td></tr><tr><td>Gaussian Naive Bayes</td><td>0.638888888889</td><td>0.266666666667</td><td>0.861111111111</td></tr><tr><td>SVM_linear</td><td>0.313131313131</td><td>0.6</td><td>0.759259259259</td></tr><tr><td>Logistic Regrssion</td><td>0.308913308913</td><td>0.666666666667</td><td>0.740740740741</td></tr><tr><td>SVM_sigmoid</td><td>0.241666666667</td><td>0.866666666667</td><td>0.592592592593</td></tr><tr><td>Random Forest</td><td>0.333333333333</td><td>0.133333333333</td><td>0.851851851852</td></tr></table>
+<table width=100%><tr><th>Classifier</th><th>Accuracy</th><th>Precision</th><th>Recall</th></tr><tr><td>KNN</td><td>0.222222222222</td><td>0.133333333333</td><td>0.861111111111</td></tr><tr><td>Decision Tree</td><td>0.376082251082</td><td>0.6</td><td>0.787037037037</td></tr><tr><td>SVM_rbf</td><td>0.256613756614</td><td>0.666666666667</td><td>0.666666666667</td></tr><tr><td>Gaussian Naive Bayes</td><td>0.638888888889</td><td>0.266666666667</td><td>0.861111111111</td></tr><tr><td>SVM_linear</td><td>0.313131313131</td><td>0.6</td><td>0.759259259259</td></tr><tr><td>Logistic Regrssion</td><td>0.308913308913</td><td>0.666666666667</td><td>0.740740740741</td></tr><tr><td>SVM_sigmoid</td><td>0.241666666667</td><td>0.866666666667</td><td>0.592592592593</td></tr><tr><td>Random Forest</td><td>0.25</td><td>0.133333333333</td><td>0.842592592593</td></tr></table>
 </div>
 
 </div>
@@ -19852,7 +19875,7 @@ Features in third set are  [&#39;exercised_stock_options&#39;, &#39;total_stock_
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#Using top 7 features :d</span>
@@ -19878,7 +19901,7 @@ Features in third set are  [&#39;exercised_stock_options&#39;, &#39;total_stock_
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[41]:</div>
+<div class="prompt output_prompt">Out[42]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -19893,7 +19916,7 @@ Features in third set are  [&#39;exercised_stock_options&#39;, &#39;total_stock_
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#Using top 10 features :d</span>
@@ -19919,11 +19942,11 @@ Features in third set are  [&#39;exercised_stock_options&#39;, &#39;total_stock_
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[42]:</div>
+<div class="prompt output_prompt">Out[43]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table width=100%><tr><th>Classifier</th><th>Accuracy</th><th>Precision</th><th>Recall</th></tr><tr><td>KNN</td><td>0.833333333333</td><td>0.266666666667</td><td>0.87962962963</td></tr><tr><td>Decision Tree</td><td>0.186507936508</td><td>0.266666666667</td><td>0.740740740741</td></tr><tr><td>SVM_rbf</td><td>0.378754578755</td><td>0.733333333333</td><td>0.787037037037</td></tr><tr><td>Gaussian Naive Bayes</td><td>0.373015873016</td><td>0.333333333333</td><td>0.824074074074</td></tr><tr><td>SVM_linear</td><td>0.327777777778</td><td>0.6</td><td>0.768518518519</td></tr><tr><td>Logistic Regrssion</td><td>0.340992340992</td><td>0.666666666667</td><td>0.759259259259</td></tr><tr><td>SVM_sigmoid</td><td>0.24864024864</td><td>0.666666666667</td><td>0.685185185185</td></tr><tr><td>Random Forest</td><td>0.777777777778</td><td>0.266666666667</td><td>0.87962962963</td></tr></table>
+<table width=100%><tr><th>Classifier</th><th>Accuracy</th><th>Precision</th><th>Recall</th></tr><tr><td>KNN</td><td>0.833333333333</td><td>0.266666666667</td><td>0.87962962963</td></tr><tr><td>Decision Tree</td><td>0.233333333333</td><td>0.333333333333</td><td>0.759259259259</td></tr><tr><td>SVM_rbf</td><td>0.378754578755</td><td>0.733333333333</td><td>0.787037037037</td></tr><tr><td>Gaussian Naive Bayes</td><td>0.373015873016</td><td>0.333333333333</td><td>0.824074074074</td></tr><tr><td>SVM_linear</td><td>0.327777777778</td><td>0.6</td><td>0.768518518519</td></tr><tr><td>Logistic Regrssion</td><td>0.340992340992</td><td>0.666666666667</td><td>0.759259259259</td></tr><tr><td>SVM_sigmoid</td><td>0.24864024864</td><td>0.666666666667</td><td>0.685185185185</td></tr><tr><td>Random Forest</td><td>0.333333333333</td><td>0.0666666666667</td><td>0.851851851852</td></tr></table>
 </div>
 
 </div>
@@ -19962,7 +19985,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[145]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">enron_data_df</span><span class="p">[</span><span class="n">features_7</span><span class="p">]</span>
@@ -19990,10 +20013,10 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[146]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_best_estimator</span><span class="p">(</span><span class="n">my_clf</span><span class="p">,</span><span class="n">param_grid</span><span class="p">,</span><span class="n">n_splits</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_best_estimator</span><span class="p">(</span><span class="n">my_clf</span><span class="p">,</span><span class="n">param_grid</span><span class="p">,</span><span class="n">features</span><span class="o">=</span><span class="n">features</span><span class="p">,</span><span class="n">lables</span> <span class="o">=</span> <span class="n">labels</span><span class="p">,</span><span class="n">n_splits</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
     <span class="n">skb</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">f_classif</span><span class="p">)</span>
     <span class="n">clf</span> <span class="o">=</span> <span class="n">pipeline</span> <span class="o">=</span>  <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
                                      <span class="p">(</span><span class="s2">&quot;classifier&quot;</span><span class="p">,</span><span class="n">my_clf</span><span class="p">)])</span>
@@ -20010,7 +20033,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[147]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">labels</span><span class="p">,</span><span class="n">features</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -20026,7 +20049,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[135]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span>
@@ -20053,7 +20076,7 @@ I selected the following algorithm for fine tuning as well :</p>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fitting 10 folds for each of 80 candidates, totalling 800 fits
 [CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
-[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.800463 -   0.4s
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.800463 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
 [CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.904762 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
@@ -20122,10 +20145,7 @@ I selected the following algorithm for fine tuning as well :</p>
 [CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.714286 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
 [CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=1.000000 -   0.0s
-[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
-[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.614035 -   0.0s
-[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
-</pre>
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 </pre>
 </div>
 </div>
 
@@ -20133,15 +20153,17 @@ I selected the following algorithm for fine tuning as well :</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   2 out of   2 | elapsed:    0.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    0.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   4 out of   4 | elapsed:    0.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   6 out of   6 | elapsed:    0.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    0.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:    0.4s remaining:    0.0s
-[Parallel(n_jobs=1)]: Done   9 out of   9 | elapsed:    0.4s remaining:    0.0s
+<pre>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   2 out of   2 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   4 out of   4 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   6 out of   6 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   9 out of   9 | elapsed:    0.0s remaining:    0.0s
+/home/kashif/.local/lib/python2.7/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  &#39;precision&#39;, &#39;predicted&#39;, average, warn_for)
 </pre>
 </div>
 </div>
@@ -20150,7 +20172,10 @@ I selected the following algorithm for fine tuning as well :</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.851852 -   0.0s
+<pre>
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.614035 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.851852 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
 [CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.714286 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
@@ -20158,7 +20183,7 @@ I selected the following algorithm for fine tuning as well :</p>
 [CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
 [CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.853535 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
-[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.800463 -   1.3s
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.800463 -   0.1s
 [CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
 [CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.904762 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
@@ -20238,7 +20263,7 @@ I selected the following algorithm for fine tuning as well :</p>
 [CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
 [CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=0.853535 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
-[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.800463 -   0.6s
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.800463 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
 [CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.757576 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
@@ -20318,7 +20343,7 @@ I selected the following algorithm for fine tuning as well :</p>
 [CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
 [CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.853535 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
-[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.800463 -   0.1s
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.800463 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
 [CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.333333 -   0.0s
 [CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
@@ -21685,7 +21710,7 @@ I selected the following algorithm for fine tuning as well :</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[Parallel(n_jobs=1)]: Done 800 out of 800 | elapsed:    6.8s finished
+<pre>[Parallel(n_jobs=1)]: Done 800 out of 800 | elapsed:    4.6s finished
 </pre>
 </div>
 </div>
@@ -21696,7 +21721,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[136]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grid_comp</span><span class="p">[</span><span class="s1">&#39;Logistic Regression&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">grid_logistic</span><span class="o">.</span><span class="n">best_score_</span>
@@ -21709,7 +21734,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[137]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
@@ -21819,9 +21844,7 @@ I selected the following algorithm for fine tuning as well :</p>
 [CV] classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0 ..
 [CV]  classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0, score=0.047619 -   0.0s
 [CV] classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0 ..
-[CV]  classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0, score=0.047619 -   0.0s
-[CV] classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0 ..
-[CV]  classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0, score=0.047619 -   0.0s</pre>
+</pre>
 </div>
 </div>
 
@@ -21846,7 +21869,9 @@ I selected the following algorithm for fine tuning as well :</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>
+<pre>[CV]  classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0, score=0.047619 -   0.0s
+[CV] classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0 ..
+[CV]  classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0, score=0.047619 -   0.0s
 [CV] classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0 ..
 [CV]  classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0, score=0.047619 -   0.0s
 [CV] classifier__gamma=0.5, classifier__C=0.01, classifier__tol=1.0 ..
@@ -23367,7 +23392,7 @@ I selected the following algorithm for fine tuning as well :</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[Parallel(n_jobs=1)]: Done 800 out of 800 | elapsed:    3.9s finished
+<pre>[Parallel(n_jobs=1)]: Done 800 out of 800 | elapsed:    4.1s finished
 </pre>
 </div>
 </div>
@@ -23378,7 +23403,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[138]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grid_comp</span><span class="p">[</span><span class="s1">&#39;SVM with sigmoid kernel&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">grid_svm</span><span class="o">.</span><span class="n">best_score_</span>
@@ -23413,7 +23438,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[139]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span>
@@ -23535,6 +23560,12 @@ I selected the following algorithm for fine tuning as well :</p>
 [CV] classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=2 
 [CV]  classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=2, score=0.555556 -   0.0s
 [CV] classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=2 
+[CV]  classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=2, score=1.000000 -   0.0s
+[CV] classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=2 
+[CV]  classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=2, score=0.818182 -   0.0s
+[CV] classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7 
+[CV]  classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7, score=0.602564 -   0.0s
+[CV] classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7 
 </pre>
 </div>
 </div>
@@ -23560,13 +23591,7 @@ I selected the following algorithm for fine tuning as well :</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[CV]  classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=2, score=1.000000 -   0.0s
-[CV] classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=2 
-[CV]  classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=2, score=0.818182 -   0.0s
-[CV] classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7 
-[CV]  classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7, score=0.602564 -   0.0s
-[CV] classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7 
-[CV]  classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7, score=0.714286 -   0.0s
+<pre>[CV]  classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7, score=0.714286 -   0.0s
 [CV] classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7 
 [CV]  classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7, score=0.614035 -   0.0s
 [CV] classifier__max_leaf_nodes=70, classifier__max_depth=1, classifier__min_samples_split=7 
@@ -24671,7 +24696,7 @@ I selected the following algorithm for fine tuning as well :</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[Parallel(n_jobs=1)]: Done 600 out of 600 | elapsed:    2.6s finished
+<pre>[Parallel(n_jobs=1)]: Done 600 out of 600 | elapsed:    2.7s finished
 </pre>
 </div>
 </div>
@@ -24682,7 +24707,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[140]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grid_comp</span><span class="p">[</span><span class="s1">&#39;Decision Tree&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">grid_dt</span><span class="o">.</span><span class="n">best_score_</span>
@@ -24695,7 +24720,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#Ref : http://stackoverflow.com/questions/30523735/python-dictionary-as-html-table-in-ipython-notebook</span>
@@ -24724,7 +24749,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">DictTable_grid</span><span class="p">(</span><span class="n">grid_comp</span><span class="p">)</span>
@@ -24739,11 +24764,11 @@ I selected the following algorithm for fine tuning as well :</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[57]:</div>
+<div class="prompt output_prompt">Out[54]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table width=100%><tr><th>Classifier</th><th>F1 score</th></tr><tr><td>SVM with sigmoid kernel</td><td>0.658785332315</td></tr><tr><td>Logistic Regression</td><td>0.769213139801</td></tr><tr><td>Decision Tree</td><td>0.534759358289</td></tr></table>
+<table width=100%><tr><th>Classifier</th><th>F1 score</th></tr><tr><td>SVM with sigmoid kernel</td><td>0.777999876187</td></tr><tr><td>Logistic Regression</td><td>0.82184019853</td></tr><tr><td>Decision Tree</td><td>0.746548237458</td></tr></table>
 </div>
 
 </div>
@@ -24764,7 +24789,7 @@ I selected the following algorithm for fine tuning as well :</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">best_clf</span> <span class="o">=</span> <span class="n">grid_logistic</span><span class="o">.</span><span class="n">best_estimator_</span>
@@ -24786,10 +24811,1924 @@ I selected the following algorithm for fine tuning as well :</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Pipeline(steps=[(&#39;scaler&#39;, StandardScaler(copy=True, with_mean=True, with_std=True)), (&#39;classifier&#39;, LogisticRegression(C=1.0, class_weight=&#39;balanced&#39;, dual=False,
+<pre>Pipeline(steps=[(&#39;scaler&#39;, StandardScaler(copy=True, with_mean=True, with_std=True)), (&#39;classifier&#39;, LogisticRegression(C=0.001, class_weight=&#39;balanced&#39;, dual=False,
+          fit_intercept=True, intercept_scaling=1, max_iter=500,
+          multi_class=&#39;ovr&#39;, n_jobs=1, penalty=&#39;l2&#39;, random_state=0,
+          solver=&#39;sag&#39;, tol=0.01, verbose=0, warm_start=False))])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Comparision-with-old-dataset-before-Feature-Engineering">Comparision with old dataset before Feature Engineering<a class="anchor-link" href="#Comparision-with-old-dataset-before-Feature-Engineering">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">skb</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">f_classif</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">old_data</span><span class="p">,</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;poi&#39;</span><span class="p">])</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">skb</span><span class="o">.</span><span class="n">scores_</span>
+<span class="n">all_features</span> <span class="o">=</span> <span class="n">old_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+<span class="n">sort_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">scores</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ranked_features</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">print</span> <span class="s2">&quot;Ranking of features is as follows &quot;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sort_index</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">rank</span><span class="p">,</span><span class="s2">&quot;. Score for &quot;</span><span class="p">,</span><span class="n">all_features</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="s2">&quot; is &quot;</span><span class="p">,</span><span class="n">scores</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="n">ranked_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">all_features</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+    <span class="n">rank</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="n">all_features</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Ranking of features is as follows 
+1 . Score for  exercised_stock_options  is  23.6138062092
+2 . Score for  total_stock_value  is  16.7366284243
+3 . Score for  bonus  is  9.73938229385
+4 . Score for  salary  is  7.99996454308
+5 . Score for  total_payments  is  5.75730233923
+6 . Score for  restricted_stock  is  5.34226430067
+7 . Score for  long_term_incentive  is  5.07283618479
+8 . Score for  shared_receipt_with_poi  is  4.87403011599
+9 . Score for  from_poi_to_this_person  is  2.58082108539
+10 . Score for  other  is  1.59257036438
+11 . Score for  from_this_person_to_poi  is  1.15629869907
+12 . Score for  from_messages  is  0.497759385305
+13 . Score for  expenses  is  0.496738048357
+14 . Score for  to_messages  is  0.312817105062
+[&#39;bonus&#39; &#39;exercised_stock_options&#39; &#39;expenses&#39; &#39;long_term_incentive&#39; &#39;other&#39;
+ &#39;restricted_stock&#39; &#39;salary&#39; &#39;total_payments&#39; &#39;total_stock_value&#39;
+ &#39;from_messages&#39; &#39;from_poi_to_this_person&#39; &#39;from_this_person_to_poi&#39;
+ &#39;shared_receipt_with_poi&#39; &#39;to_messages&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets perform analysis using the same classifiers over the top 7 features in the old dataset</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">old_top7_features</span> <span class="o">=</span> <span class="n">ranked_features</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">old_top7_features</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;exercised_stock_options&#39;, &#39;total_stock_value&#39;, &#39;bonus&#39;, &#39;salary&#39;, &#39;total_payments&#39;, &#39;restricted_stock&#39;, &#39;long_term_incentive&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now to compare the results with the old set,we use the model used previously</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">my_clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">classifier__tol</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.001</span><span class="p">],</span>
+                  <span class="n">classifier__C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">([</span><span class="mf">10.0</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">xrange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                  <span class="n">classifier__solver</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;newton-cg&#39;</span><span class="p">,</span> <span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="s1">&#39;sag&#39;</span><span class="p">],</span>
+
+                 <span class="p">)</span>
+<span class="n">grid_logistic</span> <span class="o">=</span> <span class="n">get_best_estimator</span><span class="p">(</span><span class="n">my_clf</span><span class="p">,</span><span class="n">param_grid</span><span class="p">,</span><span class="n">features</span><span class="o">=</span><span class="n">old_data</span><span class="p">[</span><span class="n">old_top7_features</span><span class="p">],</span><span class="n">lables</span><span class="o">=</span><span class="n">labels</span><span class="p">,)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Fitting 10 folds for each of 80 candidates, totalling 800 fits
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.846154 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.614035 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.921850 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=1.0, score=0.785027 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.1, score=0.853535 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01, score=0.904762 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.01, score=0.853535 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.904762 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   2 out of   2 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   4 out of   4 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   6 out of   6 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:    0.0s remaining:    0.0s
+[Parallel(n_jobs=1)]: Done   9 out of   9 | elapsed:    0.0s remaining:    0.0s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=newton-cg, classifier__tol=0.001, score=0.853535 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.846154 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.921850 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=1.0, score=0.785027 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1, score=0.904762 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.1, score=0.853535 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01, score=0.904762 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.01, score=0.853535 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=0.904762 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=lbfgs, classifier__tol=0.001, score=0.853535 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.786813 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.490196 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.921850 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=1.0, score=0.785027 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1, score=0.846154 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1, score=0.490196 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1, score=0.921850 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.1, score=0.785027 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01, score=0.846154 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01, score=0.490196 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01, score=0.921850 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.01, score=0.785027 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.846154 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.490196 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.921850 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=liblinear, classifier__tol=0.001, score=0.785027 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.786813 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.202797 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.445221 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.562500 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.445221 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=1.0, score=0.853535 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1, score=0.047619 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1, score=0.047619 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1, score=0.047619 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1, score=0.202797 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.1, score=0.818182 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01, score=0.635854 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01, score=0.904762 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.01, score=0.765550 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001, score=0.904762 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001, score=0.714286 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.001, classifier__solver=sag, classifier__tol=0.001, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=1.0, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.1, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.01, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=newton-cg, classifier__tol=0.001, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=1.0, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.1, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.01, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=lbfgs, classifier__tol=0.001, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0, score=0.555556 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=1.0, score=0.785027 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1, score=0.846154 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1, score=0.555556 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.1, score=0.785027 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01, score=0.846154 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01, score=0.555556 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.01, score=0.785027 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001, score=0.846154 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001, score=0.555556 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=liblinear, classifier__tol=0.001, score=0.785027 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0, score=0.846154 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0, score=0.921850 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=1.0, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.1, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.01, score=0.853535 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001, score=0.714286 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.01, classifier__solver=sag, classifier__tol=0.001, score=0.853535 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=1.0, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.1, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.01, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=newton-cg, classifier__tol=0.001, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=1.0, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.1, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.01, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=lbfgs, classifier__tol=0.001, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=1.0, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.1, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.01, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=liblinear, classifier__tol=0.001, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0, score=0.692308 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0, score=0.904762 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0, score=0.703704 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0, score=0.614035 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0, score=0.714286 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=1.0, score=0.785027 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1, score=0.904762 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.1, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.01, score=0.921850 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001, score=0.922807 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001, score=0.555556 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=0.1, classifier__solver=sag, classifier__tol=0.001, score=0.921850 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.735786 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.708333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.555556 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.851852 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.635854 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.490196 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.846154 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.851852 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.635854 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.490196 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.846154 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.851852 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.635854 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.490196 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.735786 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.708333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.555556 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.851852 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.635854 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.490196 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.846154 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.851852 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.635854 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.490196 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.846154 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.851852 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.635854 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.490196 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.735786 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.629630 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.555556 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.846154 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.851852 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.708333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.490196 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.846154 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.851852 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.708333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.490196 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.846154 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.851852 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.708333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.490196 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0, score=0.692308 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0, score=0.904762 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0, score=0.614035 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0, score=0.714286 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0, score=0.921850 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=1.0, score=0.785027 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1, score=0.555556 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1, score=0.853535 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1 ..
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.1, score=0.785027 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01, score=0.708333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01, score=0.555556 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01 .
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.01, score=0.818182 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001, score=0.735786 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001, score=0.757576 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001, score=0.851852 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001, score=0.708333 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001, score=0.555556 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001, score=0.703704 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001, score=0.666667 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001, score=1.000000 -   0.0s
+[CV] classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=1.0, classifier__solver=sag, classifier__tol=0.001, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.728205 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=1.0, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.667438 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.1, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.667438 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.01, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.667438 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=newton-cg, classifier__tol=0.001, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.846154 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=1.0, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.667438 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.1, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.667438 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.01, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.667438 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=lbfgs, classifier__tol=0.001, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.735786 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.757576 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.629630 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.555556 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.666667 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=1.0, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.667438 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.1, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.667438 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.01, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.667438 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=liblinear, classifier__tol=0.001, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0, score=0.692308 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0, score=0.922807 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0, score=1.000000 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0, score=0.714286 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0, score=0.921850 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=1.0, score=0.785027 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1, score=0.735786 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1, score=0.757576 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1, score=0.922807 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1, score=0.555556 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1, score=0.714286 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1 .
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.1, score=0.785027 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01, score=0.735786 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01, score=0.757576 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01, score=0.555556 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01, score=0.666667 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01, score=1.000000 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.01, score=0.818182 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001, score=0.667438 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001, score=0.904762 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001, score=0.768421 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001, score=0.833333 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001, score=0.635854 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001, score=0.490196 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001, score=0.703704 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001, score=0.614035 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001, score=0.853535 -   0.0s
+[CV] classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001 
+[CV]  classifier__C=10.0, classifier__solver=sag, classifier__tol=0.001, score=0.818182 -   0.0s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=1)]: Done 800 out of 800 | elapsed:    4.5s finished
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">grid_comp</span><span class="p">[</span><span class="s1">&#39;Logistic Regression on old features&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">grid_logistic</span><span class="o">.</span><span class="n">best_score_</span>
+<span class="n">old_clf</span> <span class="o">=</span> <span class="n">grid_logistic</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="n">grid_comp</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;SVM with sigmoid kernel&#39;</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">grid_comp</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;Decision Tree&#39;</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">old_clf</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Pipeline(steps=[(&#39;scaler&#39;, StandardScaler(copy=True, with_mean=True, with_std=True)), (&#39;classifier&#39;, LogisticRegression(C=0.01, class_weight=&#39;balanced&#39;, dual=False,
           fit_intercept=True, intercept_scaling=1, max_iter=500,
           multi_class=&#39;ovr&#39;, n_jobs=1, penalty=&#39;l2&#39;, random_state=0,
           solver=&#39;sag&#39;, tol=1.0, verbose=0, warm_start=False))])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">DictTable_grid</span><span class="p">(</span><span class="n">grid_comp</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[67]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table width=100%><tr><th>Classifier</th><th>F1 score</th></tr><tr><td>Logistic Regression on old features</td><td>0.828709729506</td></tr><tr><td>Logistic Regression</td><td>0.82184019853</td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you can see clearly, the new features perform better than the old set of features</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">tester</span> <span class="kn">import</span> <span class="n">test_classifier</span>
+<span class="n">my_dataset_old</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">labels</span><span class="p">,</span><span class="n">old_data</span><span class="p">[</span><span class="n">old_top7_features</span><span class="p">]],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">my_feature_list_old</span> <span class="o">=</span> <span class="n">my_dataset_old</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+<span class="n">my_dataset_old</span> <span class="o">=</span> <span class="n">my_dataset_old</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">test_classifier</span><span class="p">(</span><span class="n">old_clf</span><span class="p">,</span><span class="n">my_dataset_old</span><span class="p">,</span><span class="n">my_feature_list_old</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Pipeline(steps=[(&#39;scaler&#39;, StandardScaler(copy=True, with_mean=True, with_std=True)), (&#39;classifier&#39;, LogisticRegression(C=0.01, class_weight=&#39;balanced&#39;, dual=False,
+          fit_intercept=True, intercept_scaling=1, max_iter=500,
+          multi_class=&#39;ovr&#39;, n_jobs=1, penalty=&#39;l2&#39;, random_state=0,
+          solver=&#39;sag&#39;, tol=1.0, verbose=0, warm_start=False))])
+	Accuracy: 0.70850	Precision: 0.28465	Recall: 0.49500	F1: 0.36145	F2: 0.43126
+	Total predictions: 12000	True positives:  990	False positives: 2488	False negatives: 1010	True negatives: 7512
+
 </pre>
 </div>
 </div>
